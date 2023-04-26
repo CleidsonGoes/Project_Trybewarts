@@ -8,13 +8,16 @@
   <title>Trybewarts form</title>
 </head>
 <body>
-    <header class="header"><img src="images/trybewarts-header-logo.svg" alt="logo" class="trybewarts-header-logo"></header>
-    <form action="" class="trybewarts-login">
-        <label>email</label>
-        <input type="email" name="email" placeholder="Email">
-        <label>senha</label>
-        <input type="password" name="password" placeholder="Senha">
-        <button>Entrar</button>
-    </form>
+    <header class="header">
+        <img src="images/trybewarts-header-logo.svg" alt="logo" class="trybewarts-header-logo">
+        <form action="" class="trybewarts-login">
+            <label for="email">email</label>
+            <input type="email" id="email" name="email" value="email" placeholder="Email">
+            <label>senha</label>
+            <input type="password" id="password" name="password" value="password" placeholder="Senha">
+            <button type="submit" id="btn">Entrar</button>
+        </form>
+    </header>
+<script src="script.js"></script>
 </body>
 </html>

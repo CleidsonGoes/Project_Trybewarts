@@ -5,8 +5,13 @@
 
 .header {
   display: flex;
+  flex-direction: row;
   background-color: rgb(50, 167, 145);
 }
+
+/* .trybewarts-header-logo {
+
+} */
 
 .trybewarts-login {
   display: flex;
