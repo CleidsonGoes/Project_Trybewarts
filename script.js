@@ -1,7 +1,7 @@
 const email = document.querySelector('#email');
 const password = document.querySelector('#password');
 const textArea = document.querySelector('#textarea');
-const btnEnviar = document.querySelector('#submit-btn');
+// const btnEnviar = document.querySelector('#submit-btn');
 
 const btnSubmit = () => {
   const ckbox = document.querySelector('#agreement');
@@ -62,5 +62,5 @@ window.onload = () => {
     document.getElementById('counter').innerText = 500 - areaText.length;
   });
 
-  btnEnviar.addEventListener('click', send);
+  // btnEnviar.addEventListener('click', send);
 };
