@@ -24,7 +24,10 @@
   width: 675px;
 }
 
-#evaluation-form div {
+/* #evaluation-form div {
+  flex-direction: row;
+} */
+.row {
   flex-direction: row;
 }
 
@@ -34,4 +37,13 @@ main {
 
 #trybewarts-forms-logo {
   height: 500px;
+}
+
+.family {
+  display: flex;
+  flex-direction: column;
+}
+
+#label-family {
+  background-color: blue;
 }
