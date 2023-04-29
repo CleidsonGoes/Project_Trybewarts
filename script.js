@@ -1,5 +1,6 @@
 const email = document.querySelector('#email');
 const password = document.querySelector('#password');
+const textArea = document.querySelector('#textarea');
 
 const btnSubmit = () => {
   const ckbox = document.querySelector('#agreement');
@@ -19,11 +20,19 @@ const validationInput = () => {
   }
 };
 
+// const counterChar = (event) => {
+// };
+
 window.onload = () => {
   const btnEntrar = document.querySelector('#btn');
   btnEntrar.addEventListener('click', validationInput);
 
   document.getElementById('submit-btn').disabled = true;
+
   const checkbox = document.querySelector('#agreement');
   checkbox.addEventListener('click', btnSubmit);
+  textArea.addEventListener('input', () => {
+    const areaText = document.form.text.value;
+    document.getElementById('counter').innerText = 500 - areaText.length;
+  });
 };
