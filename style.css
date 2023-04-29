@@ -26,9 +26,6 @@
   width: 675px;
 }
 
-/* #evaluation-form div {
-  flex-direction: row;
-} */
 .row {
   flex-direction: row;
 }
