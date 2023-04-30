@@ -1,7 +1,7 @@
 const email = document.querySelector('#email');
 const password = document.querySelector('#password');
 const textArea = document.querySelector('#textarea');
-// const btnEnviar = document.querySelector('#submit-btn');
+const btnEnviar = document.querySelector('#submit-btn');
 
 const btnSubmit = () => {
   const ckbox = document.querySelector('#agreement');
@@ -21,32 +21,45 @@ const validationInput = () => {
   }
 };
 
-// const labels = (formNext, name, sobrenome, Email, house, family, material, avaliator, observation) => {
-//   formNext.innerHTML = `<label>Nome: ${name} ${sobrenome}</label>`;
-//   formNext.innerHTML = `<label>Email: ${Email}</label>`;
-//   formNext.innerHTML = `<label>Casa: ${house}</label>`;
-//   formNext.innerHTML = `<label>Família: ${family}</label>`;
-//   formNext.innerHTML = `<label>Matérias: ${material}</label>`;
-//   formNext.innerHTML = `<label>Avaliação: ${avaliator}</label>`;
-//   formNext.innerHTML = `<label>Observações: ${observation}</label>`;
-//   console.log(name);
-// };
+const checkMateria = () => {
+  const nameCheck = document.getElementsByClassName('subject');
+  const materiaChecked = [];
+  for (let index = 0; index < nameCheck.length; index += 1) {
+    if (nameCheck[index].checked === true) {
+      materiaChecked.push(nameCheck[index].value);
+    }
+  }
+  return materiaChecked.join(', ');
+};
 
-// const send = (event) => {
-//   const mainForm = document.querySelector('#evaluation-form');
-//   mainForm.style.display = 'none';
-//   event.preventDefault();
-//   const formNext = document.querySelector('#form-data');
-//   const name = document.querySelector('#input-name').value;
-//   const sobrenome = document.querySelector('#input-lastname').value;
-//   const Email = document.querySelector('#input-email').value;
-//   const house = document.querySelector('#house').value;
-//   const family = document.querySelector('input[name = "family"]:checked').value;
-//   const material = document.querySelector('#label-content').value;
-//   const avaliator = document.querySelector('input[name = "rate"]:checked').value;
-//   const observation = document.querySelector('#textarea').value;
-//   labels(formNext, name, sobrenome, Email, house, family, material, avaliator, observation);
-// };
+const makeObject = () => {
+  const sobreNome = document.querySelector('#input-lastname').value;
+  const objectLabels = {
+    Nome: `${document.querySelector('#input-name').value} ${sobreNome}`,
+    Email: document.querySelector('#input-email').value,
+    Casa: document.querySelector('#house').value,
+    Família: document.querySelector('input[name = "family"]:checked').value,
+    Matérias: checkMateria(),
+    Avaliação: document.querySelector('input[name = "rate"]:checked').value,
+    Observações: document.querySelector('#textarea').value,
+  };
+  return objectLabels;
+};
+
+const labels = (obj) => {
+  const frmN = document.querySelector('#form-data');
+  for (let index = 0; index < Object.keys(obj).length; index += 1) {
+    frmN.innerHTML += `<label>${Object.keys(obj)[index]}: ${Object.values(obj)[index]}</label><br>`;
+  }
+};
+
+const send = (event) => {
+  const mainForm = document.querySelector('#evaluation-form');
+  mainForm.style.display = 'none';
+  event.preventDefault();
+  const object = makeObject();
+  labels(object);
+};
 
 window.onload = () => {
   const btnEntrar = document.querySelector('#btn');
@@ -62,5 +75,5 @@ window.onload = () => {
     document.getElementById('counter').innerText = 500 - areaText.length;
   });
 
-  // btnEnviar.addEventListener('click', send);
+  btnEnviar.addEventListener('click', send);
 };
